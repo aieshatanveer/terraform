@@ -1,30 +1,36 @@
 pipeline {
-   agent any
-   environment {
-     AWS_ACCESS_KEY_ID =credentials('Access_key')
-     AWS_SECRET_ACCESS_KEY = credentials('secret_key')
-   }
+    agent any
 
-   stages {
-      stage('checkout code') {
-         steps {
-            git url: 'https://github.com/aieshatanveer/terraform.git', branch: 'main'
-         }
-      }
-      stage('terraform init') {
-         steps {
+    stages {
+       stage('checkout code') {
+          steps {
+             git url: 'https://github.com/aieshatanveer/terraform.git', branch: 'main'
+          }
+       }
+
+       stage('Init') {
+          steps {
              sh 'terraform init'
-         }
-      }
-      stage('terraform plan') {
-         steps {
+          }
+       }
+
+       stage('Validate') {
+          steps {
+             sh 'terraform validate'
+          }   
+       }
+
+       stage (plan') {
+          steps {
              sh 'terraform plan'
-         }
-      }
-      stage('terraform Apply') {
-         steps {
-             sh 'terraform apply --auto-approve'
-         }
-      }
-   }
-}
+          }
+       }
+
+       stage ('Apply') {
+          steps {
+             sh 'terraform apply'
+          }
+       }
+   }           
+}             
+              
