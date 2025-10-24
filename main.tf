@@ -1,4 +1,9 @@
-resource "local_file" "my_pet"{
-filename = "pets.txt"
-content = "i really love all my pets"
+resource “local_file” “my_pet” {
+   filename = var.filename
+   content = var.content
+}
+resource “random_pet” “petname” {
+   prefix = “MR”
+   separator = “.”
+   length =”1”
 }
