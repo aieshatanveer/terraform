@@ -1,10 +1,8 @@
 variable "filename" {
-    description = "the name of the file to create"
+    description = "the name of the file"
     type = string
-    default = "example.txt"
 }
 variable "content" {
-    description = "the content to put inside the file"
+    description = "the content of the file"
     type = string
-    default = "Hello from Jenkins!"
 }
