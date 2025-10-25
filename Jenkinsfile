@@ -8,12 +8,18 @@ pipeline {
           }
        }
 
-       stage('terraform Init') {
+       stage('Init') {
           steps {
              sh 'terraform init'
           }
        }
 
+        stage('validate') {
+            steps {
+                sh 'terraform validate'
+            }
+        }
+        
        stage('terraform plan') {
           steps {
              sh 'terraform plan'
