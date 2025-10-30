@@ -1,2 +1,1 @@
-filename = "apple.txt"
-content = "royal fuji is one type of apple"
+filename = ["lion.txt", "tiger.txt", "elephant.txt"]
